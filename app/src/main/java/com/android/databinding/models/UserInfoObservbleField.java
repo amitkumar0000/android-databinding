@@ -5,12 +5,12 @@ import android.databinding.Observable;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 
-public class UserInfoObservble {
+public class UserInfoObservbleField {
     public ObservableField<String> firstName = new ObservableField<>();
     public ObservableField<String> lastName = new ObservableField<>();
     ObservableInt count;
 
-    public UserInfoObservble(String fname, String lname){
+    public UserInfoObservbleField(String fname, String lname){
         firstName.set(fname);
         lastName.set(lname);
     }

@@ -5,7 +5,7 @@
         <import type="android.view.View"/>
         <variable
             name="userInfoobserver"
-            type="com.android.databinding.models.UserInfoObservble"
+            type="com.android.databinding.models.UserInfoObservbleField"
             />
     </data>
 

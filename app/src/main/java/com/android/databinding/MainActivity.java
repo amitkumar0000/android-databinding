@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.android.databinding.models.UserInfo;
-import com.android.databinding.models.UserInfoObservble;
+import com.android.databinding.models.UserInfoObservbleField;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setObservableFieldClass() {
         DataObserverBinding dataObserverBinding = DataBindingUtil.setContentView(this,R.layout.activity_main1);
-        UserInfoObservble userInfoObservble = new UserInfoObservble("Hello","Observer");
-        dataObserverBinding.setUserInfoobserver(userInfoObservble);
+        UserInfoObservbleField userInfoObservbleField = new UserInfoObservbleField("Hello","Observer");
+        dataObserverBinding.setUserInfoobserver(userInfoObservbleField);
+
     }
 
     private void setBaseObserverClass() {
