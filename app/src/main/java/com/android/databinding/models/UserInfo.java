@@ -14,11 +14,13 @@ public class UserInfo extends BaseObservable {
     String firstName;
     String lastName;
     String imageUrl;
+    String errorUrl;
 
-    public UserInfo(String firstName, String lastName, String imageUrl) {
+    public UserInfo(String firstName, String lastName, String imageUrl, String errorUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.imageUrl = imageUrl;
+        this.errorUrl = errorUrl;
 
     }
 
@@ -54,9 +56,20 @@ public class UserInfo extends BaseObservable {
 
     }
 
-    @BindingAdapter(value = {"imageUrl"}, requireAll = true)
-    public static void loagImage(ImageView imageView, String imagUrl) {
-        Log.d("TAG", " imageUrl:- " + imagUrl + "  errorUrl:- ");
+    @Bindable
+    public String getErrorUrl() {
+        return errorUrl;
+    }
+
+    public void setErrorUrl(String errorUrl) {
+        this.errorUrl = errorUrl;
+        notifyPropertyChanged(BR.errorUrl);
+
+    }
+
+    @BindingAdapter(value = {"imageUrl","errorUrl"}, requireAll = true)
+    public static void loagImage(ImageView imageView, String imagUrl,String errorUrl) {
+        Log.d("TAG", " imageUrl:- " + imagUrl + "  errorUrl:- "+ errorUrl+ " count"+ count++);
 
         Glide.with(imageView.getContext()).load(imagUrl).into(imageView);
 
@@ -64,17 +77,20 @@ public class UserInfo extends BaseObservable {
     }
 
     int toggle = 1;
+    static int count = 0;
 
     public void onClick(View view) {
         if (toggle == 1) {
             setFirstName("firstName");
             setLastName("secondName");
             setImageUrl("https://www.gstatic.com/webp/gallery3/1.png");
+            setErrorUrl("https://www.gstatic.com/webp/gallery3/1.png");
             toggle = 0;
         } else {
             setFirstName("secondName");
             setLastName("firstName");
             setImageUrl("https://www.gstatic.com/webp/gallery/1.jpg");
+            setErrorUrl("https://www.gstatic.com/webp/gallery3/1.png");
             toggle = 1;
         }
     }

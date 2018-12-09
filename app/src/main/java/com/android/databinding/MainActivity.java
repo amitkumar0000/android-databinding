@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(this,R.layout.activity_main);
         UserInfo userInfo =
                 new UserInfo("Hello","baseObserver",
-                        "https://www.gstatic.com/webp/gallery3/1.png");
+                        "https://www.gstatic.com/webp/gallery3/1.png","https://www.gstatic.com/webp/gallery3/1.png");
 
         dataBindingActivity.setUserInfo(userInfo);
 

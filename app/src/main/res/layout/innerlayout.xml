@@ -19,7 +19,8 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
-            app:imageUrl="@{secondaryUserInfo.imageUrl}" />
+            app:imageUrl="@{secondaryUserInfo.imageUrl}"
+            app:errorUrl="@{secondaryUserInfo.errorUrl}" />
 
         <TextView
             android:id="@+id/laNameText"
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/firstNameText"
             android:layout_centerHorizontal="true"
-            android:text="@{secondaryUserInfo.lastName}" />
+            android:text="@{secondaryUserInfo.firstName + ' ' + secondaryUserInfo.lastName}" />
 
         <Button
             android:id="@+id/click"
