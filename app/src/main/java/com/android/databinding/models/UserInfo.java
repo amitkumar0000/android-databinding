@@ -10,17 +10,16 @@ import android.widget.ImageView;
 import com.android.databinding.library.baseAdapters.BR;
 import com.bumptech.glide.Glide;
 
-public class UserInfo extends BaseObservable{
+public class UserInfo extends BaseObservable {
     String firstName;
     String lastName;
     String imageUrl;
-    String errorUrl;
 
-    public UserInfo(String firstName,String lastName,String errorUrl,String imageUrl){
+    public UserInfo(String firstName, String lastName, String imageUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.imageUrl = imageUrl;
-        this.errorUrl = errorUrl;
+
     }
 
     @Bindable
@@ -49,42 +48,30 @@ public class UserInfo extends BaseObservable{
     }
 
     public void setImageUrl(String imageUrl) {
+
         this.imageUrl = imageUrl;
         notifyPropertyChanged(BR.imageUrl);
 
     }
 
-    @Bindable
-    public String getErrorUrl() {
-        return errorUrl;
-    }
+    @BindingAdapter(value = {"imageUrl"}, requireAll = true)
+    public static void loagImage(ImageView imageView, String imagUrl) {
+        Log.d("TAG", " imageUrl:- " + imagUrl + "  errorUrl:- ");
 
-    public void setErrorUrl(String errorUrl) {
-        this.errorUrl = errorUrl;
-        notifyPropertyChanged(BR.errorUrl);
-    }
+        Glide.with(imageView.getContext()).load(imagUrl).into(imageView);
 
-    @BindingAdapter(value = {"imageUrl", "errorUrl"}, requireAll = true)
-    public static void loagImage(ImageView imageView, String imagUrl, String errorUrl) {
-        Log.d("TAG"," imageUrl:- "+ imagUrl+"  errorUrl:- "+ errorUrl);
-        if(imagUrl.length()>0) {
-            Glide.with(imageView.getContext()).load(imagUrl).into(imageView);
-        }
-        else if(errorUrl.length() >0){
-            Glide.with(imageView.getContext()).load(errorUrl).into(imageView);
-
-        }
 
     }
 
     int toggle = 1;
-    public void onClick(View view){
-        if(toggle == 1) {
+
+    public void onClick(View view) {
+        if (toggle == 1) {
             setFirstName("firstName");
             setLastName("secondName");
             setImageUrl("https://www.gstatic.com/webp/gallery3/1.png");
             toggle = 0;
-        }else{
+        } else {
             setFirstName("secondName");
             setLastName("firstName");
             setImageUrl("https://www.gstatic.com/webp/gallery/1.jpg");

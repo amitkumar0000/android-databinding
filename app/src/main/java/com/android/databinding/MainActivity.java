@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Databinding databinding = Databinding.OBSERVABLE;
+        Databinding databinding = Databinding.BASEOBSERVER;
 
         switch (databinding){
             case BASEOBSERVER:{
@@ -37,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
     private void setBaseObserverClass() {
         UserActivity dataBindingActivity = DataBindingUtil.
                 setContentView(this,R.layout.activity_main);
-        UserInfo userInfo = new UserInfo("Hello","baseObserver","https://www.gstatic.com/webp/gallery3/1.png","https://www.gstatic.com/webp/gallery3/1.png");
+        UserInfo userInfo =
+                new UserInfo("Hello","baseObserver",
+                        "https://www.gstatic.com/webp/gallery3/1.png");
 
         dataBindingActivity.setUserInfo(userInfo);
+
     }
     private void setObservableFieldClass() {
         DataObserverBinding dataObserverBinding = DataBindingUtil.setContentView(this,R.layout.activity_main1);

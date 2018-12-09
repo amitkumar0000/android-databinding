@@ -10,30 +10,34 @@
             type="com.android.databinding.models.UserInfo" />
     </data>
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/innerLayout"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:errorUrl="@{secondaryUserInfo.errorUrl}"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
             app:imageUrl="@{secondaryUserInfo.imageUrl}" />
+
+        <TextView
+            android:id="@+id/laNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/firstNameText"
+            android:layout_centerHorizontal="true"
+            android:text="@{secondaryUserInfo.lastName}" />
 
         <Button
             android:id="@+id/click"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView"
-            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:onClick="@{(view)->secondaryUserInfo.onClick(view)}"
             android:text="click" />
-
 
 
     </RelativeLayout>
