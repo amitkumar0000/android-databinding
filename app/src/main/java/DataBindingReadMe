@@ -1,0 +1,23 @@
+
+“Question 1: What are the different ways to use binding?”
+In Activity
+============
+DataBindingUtil.setContentView(this,R.layout.activity_main)
+When using fragment or adapter, we generally use ViewInflater to inflate layout
+=================================================================================
+MyLayoutBinding binding = DataBindingUtil.inflate(layoutInflater, R.layout.my_layout, viewGroup, false);
+
+“Question 2: What kind of data can be passed to layout?”
+<data>
+  <import type="com.example.User"/>
+  <import type="java.util.List"/>
+  <import type="android.graphics.drawable.Drawable"/>
+  ...
+<variable name="user"  type="User"/>
+  <variable name="image" type="Drawable"/>
+  <variable name="note"  type="String"/>
+  <variable name="userList" type="List&lt;User&gt;"/></data>
+
+“Question 3: What if I have included a layout inside layout?”
+ <include layout="@layout/inner_layout"
+       bind:secondaryUser="@{user}"/>

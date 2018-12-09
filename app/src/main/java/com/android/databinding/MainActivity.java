@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setBaseObserverClass() {
-        DataBindingActivity dataBindingActivity = DataBindingUtil.
+        UserActivity dataBindingActivity = DataBindingUtil.
                 setContentView(this,R.layout.activity_main);
-        UserInfo userInfo = new UserInfo("Hello","baseObserver");
+        UserInfo userInfo = new UserInfo("Hello","baseObserver","https://www.gstatic.com/webp/gallery3/1.png","https://www.gstatic.com/webp/gallery3/1.png");
 
         dataBindingActivity.setUserInfo(userInfo);
     }
